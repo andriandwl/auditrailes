@@ -1,0 +1,17 @@
+{
+  "name": "auditrailes",
+  "version": "1.0.7",
+  "description": "Auditrail",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "author": "andriandwiharyantoe",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
