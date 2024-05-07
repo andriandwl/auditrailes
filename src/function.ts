@@ -1,4 +1,4 @@
-import { RedisClientType } from "redis";
+import redis, { RedisClientType } from "redis";
 
 export const auditLogs = async function (
   client: RedisClientType,
@@ -22,4 +22,9 @@ export const auditLogs = async function (
   } catch (error) {
     console.log("Error:", error);
   }
+};
+
+export const publisher = (event: string, message: {}) => {
+  const client: RedisClientType = redis.createClient();
+  client.publish(event, JSON.stringify(message));
 };

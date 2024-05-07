@@ -48,6 +48,7 @@ Examples of use
 
 Declare client, subscriber and messageHandlers
 `const client = redis.createClient();`
+
 `const subscriber = client.duplicate();`
 
 `const messageHandlers = { "audit:auth:login" : authLogin};`
