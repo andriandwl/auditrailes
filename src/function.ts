@@ -2,11 +2,10 @@ import redis, { RedisClientType } from "redis";
 
 export const auditLogs = async function (
   client: RedisClientType,
+  subscriber: RedisClientType,
   messageHandlers: Record<string, Function>
 ): Promise<any> {
   try {
-    const subscriber: RedisClientType = client.duplicate();
-
     Promise.all([subscriber.connect(), client.connect()]);
 
     await subscriber.subscribe(
