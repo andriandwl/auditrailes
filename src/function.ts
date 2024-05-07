@@ -5,7 +5,7 @@ export const auditLogs = async function (
   messageHandlers: Record<string, Function>
 ): Promise<any> {
   try {
-    const subscriber = client.duplicate();
+    const subscriber: RedisClientType = client.duplicate();
 
     Promise.all([subscriber.connect(), client.connect()]);
 
