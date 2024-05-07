@@ -15,9 +15,15 @@ An audit trail is a systematic record of activities or events that occur within 
 
 An audit trail is a systematic record of activities or events that occur within a system, process, or transaction. The purpose of an audit trail is to enable accurate monitoring and analysis of these activities
 
+## Requirements
+
+- Node.js
+- Express
+- Redis
+
 ## Features
 
-List the key features of your project. Use bullet points for clarity.
+List the key features
 
 - Subscribers
 - Handlers event
@@ -37,33 +43,22 @@ npm install
 
 # Usage
 
-Explain how to use your project. Provide code examples and usage scenarios.
+Examples of use
+`import auditLogs from "auditraels";`
 
-bash
-Copy code
+Declare client, subscriber and messageHandlers
+`const client = redis.createClient();`
+`const subscriber = client.duplicate();`
 
-# Example usage commands
+`const messageHandlers = { "audit:auth:login" : authLogin};`
 
-npm start
-Contributing
-Explain how others can contribute to your project. Include guidelines for submitting bug reports, feature requests, or code contributions.
+- `authLogin` is a function for handling the message from publisher
 
-# Code Style
+Call function
+`auditLogs(client, subscriber, messageHandlers);`
 
-Describe the coding conventions or style guide used in your project.
-
-# Issue Tracker
-
-Provide a link to your project's issue tracker.
-
-# Pull Requests
-
-Explain your process for accepting pull requests. Include any requirements or guidelines contributors should follow.
+Use this function inside mongoose.connect so it can listen when the event is called.
 
 # License
 
 Specify the license under which your project is distributed. Include any licensing information or copyright notices.
-
-# Audit Trail
-
-Document the development history of your project. List key milestones, major changes, and contributors.
